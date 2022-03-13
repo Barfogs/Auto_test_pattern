@@ -14,3 +14,4 @@ class ProductPageLocators():
     SUMM_PRODUCT = (By.CLASS_NAME, "price_color")
     NAME_PRODUCT = (By.CSS_SELECTOR, ".product_main h1")
     NAME_PRODUCT_TO_CART = (By.CSS_SELECTOR, ".alertinner strong")
+    SUCCESS_MESSAGE = (By.CLASS_NAME, "alert-success")
