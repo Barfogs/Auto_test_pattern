@@ -24,6 +24,12 @@ class ProductPage(BasePage):
         name_product_to_cart = self.browser.find_element(*ProductPageLocators.NAME_PRODUCT_TO_CART).text
         assert name_product == name_product_to_cart, 'Наименование товара в корзине соответствует добавленному товару'
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), 'Отсутсвует уведомление о пополнении корзины'
+
+    def should_dissapear_of_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), 'Отсутсвует уведомление о пополнении корзины'
+
 
 
 

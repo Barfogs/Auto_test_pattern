@@ -25,18 +25,17 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     page = ProductPage(browser, link)
     page.open()
     page.push_adding_to_cart()
-    assert page.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), 'Отсутсвует уведомление о пополнении корзины'
+    page.should_not_be_success_message()
 
 def test_guest_cant_see_success_message(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     page = ProductPage(browser, link)
     page.open()
-    assert page.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), 'Отсутсвует уведомление о пополнении корзины'
-
+    page.should_not_be_success_message()
 @pytest.mark.xfail
 def test_message_disappeared_after_adding_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     page = ProductPage(browser, link)
     page.open()
     page.push_adding_to_cart()
-    assert page.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), 'Отсутсвует уведомление о пополнении корзины'
+    page.should_dissapear_of_success_message()
