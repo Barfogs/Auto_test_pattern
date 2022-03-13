@@ -15,3 +15,7 @@ class ProductPageLocators():
     NAME_PRODUCT = (By.CSS_SELECTOR, ".product_main h1")
     NAME_PRODUCT_TO_CART = (By.CSS_SELECTOR, ".alertinner strong")
     SUCCESS_MESSAGE = (By.CLASS_NAME, "alert-success")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link")
