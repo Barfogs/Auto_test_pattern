@@ -6,7 +6,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from .locators import BasePageLocators
 
-
 class BasePage:
 
     def __init__(self, browser, url, timeout=10):
@@ -59,3 +58,8 @@ class BasePage:
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+    def opening_the_basket(self):
+        assert self.is_element_present(*BasePageLocators.BASKET_BUTTON), "Имеется кнопка входа в коризну"
+        self.browser.find_element(*BasePageLocators.BASKET_BUTTON).click()
+        assert "/basket" in self.browser.current_url, "Переход на страницу корзины"
