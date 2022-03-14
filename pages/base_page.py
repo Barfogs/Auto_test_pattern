@@ -64,7 +64,7 @@ class BasePage:
         self.browser.find_element(*BasePageLocators.BASKET_BUTTON).click()
         assert "/basket" in self.browser.current_url, "Переход на страницу корзины"
 
-    def should_be_authorized_user(self, timeout=8):
+    def should_be_authorized_user(self, timeout=10):
         self.browser.implicitly_wait(timeout)
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
                                                                      " probably unauthorised user"
